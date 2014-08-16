@@ -18,24 +18,34 @@ get '/' do
 	erb :index
 end
 
+#Refactor:
+#post '/:onOff' do
+#	wemo(params[:command])
+#
+#	redirect '/'
+#end
+
 get '/on' do
+	headers['Access-Control-Allow-Origin'] = "*"
 	wemo('on')
 
 	redirect '/'
 end
 
 get '/off' do
+	headers['Access-Control-Allow-Origin'] = "*"
 	wemo('off')
 
 	redirect '/'
 end
 
 get '/status' do
+	headers['Access-Control-Allow-Origin'] = "*"
 	get_status
 end
 
 	
-def wemo(on_off)
-	system("wemo switch 'WeMo Switch' #{on_off}")
+def wemo(onOff)
+	system("wemo switch 'WeMo Switch' #{onOff}")
 end
 
