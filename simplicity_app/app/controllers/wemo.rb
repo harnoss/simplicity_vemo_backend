@@ -26,21 +26,21 @@ end
 #end
 
 get '/on' do
-	headers['Access-Control-Allow-Origin'] = "*"
+	response.headers['Access-Control-Allow-Origin'] = "*"
 	wemo('on')
 
 	redirect '/'
 end
 
 get '/off' do
-	headers['Access-Control-Allow-Origin'] = "*"
+	response.headers['Access-Control-Allow-Origin'] = "*"
 	wemo('off')
 
 	redirect '/'
 end
 
 get '/status' do
-	headers['Access-Control-Allow-Origin'] = "*"
+	response.headers['Access-Control-Allow-Origin'] = "*"
 	get_status
 end
 
