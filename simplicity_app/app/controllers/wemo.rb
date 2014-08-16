@@ -28,7 +28,8 @@ end
 get '/on' do
 	response.headers['Access-Control-Allow-Origin'] = "*"
 	wemo('on')
-
+	p 'wemo on runs'
+	p params
 	redirect '/'
 end
 
